@@ -5,7 +5,7 @@ import call from "../assets/call.png";
 const AboutUs = () => {
   return (
     <div className="md:px-32 px-10 py-24 bg-offwhite font-raleway">
-      <div className="flex xl:flex-row flex-col items-center justify-center gap-10">
+      <div className="flex xl:flex-row flex-col items-center justify-center gap-8">
         <div>
           {/* ABOUT US IMAGE */}
           <img
