@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import ServiceTeamWork from '../assets/ServiceTeamWork.png';
 import ServiceVision from '../assets/ServiceVision.png';
 import ServiceGoal from '../assets/ServiceGoal.png';
@@ -74,6 +75,11 @@ const OurServices = ({ button }) => {
   );
 };
 
+// Define PropTypes for OurServices
+OurServices.propTypes = {
+  button: PropTypes.node, // A React node (e.g., JSX element, text, or null)
+};
+
 // ServiceCard Component
 const ServiceCard = ({ imgSrc, title }) => (
   <div className="p-6 bg-offwhite rounded-lg shadow-md hover:shadow-xl transition duration-300 w-90 h-80 mx-auto">
@@ -90,5 +96,11 @@ const ServiceCard = ({ imgSrc, title }) => (
     </p>
   </div>
 );
+
+// Define PropTypes for ServiceCard
+ServiceCard.propTypes = {
+  imgSrc: PropTypes.string.isRequired, // Must be a string (URL for the image)
+  title: PropTypes.string.isRequired,  // Must be a string
+};
 
 export default OurServices;

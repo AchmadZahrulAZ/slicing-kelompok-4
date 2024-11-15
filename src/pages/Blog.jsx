@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import Header from "../components/Header";
 import Quotes from "../components/Quotes";
 
@@ -55,6 +56,17 @@ const BlogPostCard = ({
   );
 };
 
+// Define PropTypes for BlogPostCard
+BlogPostCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  readTime: PropTypes.string,
+  isLarge: PropTypes.bool.isRequired,
+  authorImage: PropTypes.string.isRequired,
+};
+
 const BlogPostCard2 = ({ image, date, title, author, authorImage }) => {
   return (
     <div className="border bg-white border-[#0E1F5133] rounded-lg p-6 w-full hover:shadow-lg transition-shadow duration-300">
@@ -83,50 +95,17 @@ const BlogPostCard2 = ({ image, date, title, author, authorImage }) => {
   );
 };
 
+// Define PropTypes for BlogPostCard2
+BlogPostCard2.propTypes = {
+  image: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  authorImage: PropTypes.string.isRequired,
+};
+
 const Blog = () => {
   const BlogPostsCard2 = [
-    {
-      image: BlogPicture1,
-      date: "May 4th, 2022",
-      title: "The most Popular Business Of the Year",
-      author: "Ranold Jeff.",
-      authorImage: BlogPeople1,
-    },
-    {
-      image: BlogPicture2,
-      date: "Apr 27th, 2022",
-      title: "The most Popular Business Of the Year",
-      author: "Patricia Anderson",
-      authorImage: BlogPeople2,
-    },
-    {
-      image: BlogPicture3,
-      date: "Apr 20th, 2022",
-      title: "The most Popular Business Of the Year",
-      author: "Elaine Luna",
-      authorImage: BlogPeople3,
-    },
-    {
-      image: BlogPicture1,
-      date: "May 4th, 2022",
-      title: "The most Popular Business Of the Year",
-      author: "Ranold Jeff.",
-      authorImage: BlogPeople1,
-    },
-    {
-      image: BlogPicture2,
-      date: "Apr 27th, 2022",
-      title: "The most Popular Business Of the Year",
-      author: "Patricia Anderson",
-      authorImage: BlogPeople2,
-    },
-    {
-      image: BlogPicture3,
-      date: "Apr 20th, 2022",
-      title: "The most Popular Business Of the Year",
-      author: "Elaine Luna",
-      authorImage: BlogPeople3,
-    },
     {
       image: BlogPicture1,
       date: "May 4th, 2022",

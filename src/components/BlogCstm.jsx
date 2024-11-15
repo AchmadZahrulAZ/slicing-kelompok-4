@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BlogPicture1 from '../assets/BlogPicture1.png';
 import BlogPicture2 from '../assets/BlogPicture2.png';
 import BlogPicture3 from '../assets/BlogPicture3.png';
@@ -10,7 +11,11 @@ const BlogPostCard2 = ({ image, date, title, author, authorImage }) => {
   return (
     <div className="border bg-white border-[#0E1F5133] rounded-lg p-6 w-full hover:shadow-lg transition-shadow duration-300">
       <div className="relative overflow-hidden rounded-lg">
-        <img src={image} alt={title} className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
+        />
       </div>
       <div className="mt-4">
         <h3 className="text-peachred font-semibold text-xl mb-2">{title}</h3>
@@ -24,6 +29,15 @@ const BlogPostCard2 = ({ image, date, title, author, authorImage }) => {
       </div>
     </div>
   );
+};
+
+// PropTypes for BlogPostCard2
+BlogPostCard2.propTypes = {
+  image: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  authorImage: PropTypes.string.isRequired,
 };
 
 const BlogCstm = () => {
