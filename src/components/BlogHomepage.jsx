@@ -11,11 +11,7 @@ const BlogPostCard2 = ({ image, date, title, author, authorImage }) => {
   return (
     <div className="border bg-white border-[#0E1F5133] rounded-lg p-6 w-full hover:shadow-lg transition-shadow duration-300">
       <div className="relative overflow-hidden rounded-lg">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
-        />
+        <img src={image} alt={title} className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" />
       </div>
       <div className="mt-4">
         <h3 className="text-peachred font-semibold text-xl mb-2">{title}</h3>
@@ -40,7 +36,7 @@ BlogPostCard2.propTypes = {
   authorImage: PropTypes.string.isRequired,
 };
 
-const BlogCstm = () => {
+const BlogHomepage = () => {
   const BlogPostsCard2 = [
     {
       image: BlogPicture1,
@@ -75,14 +71,7 @@ const BlogCstm = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8 lg:px-16">
           {BlogPostsCard2.map((post, index) => (
-            <BlogPostCard2
-              key={index}
-              image={post.image}
-              date={post.date}
-              title={post.title}
-              author={post.author}
-              authorImage={post.authorImage}
-            />
+            <BlogPostCard2 key={index} image={post.image} date={post.date} title={post.title} author={post.author} authorImage={post.authorImage} />
           ))}
         </div>
       </div>
@@ -90,4 +79,5 @@ const BlogCstm = () => {
   );
 };
 
-export default BlogCstm;
+export default BlogHomepage;
+
