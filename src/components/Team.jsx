@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import larry from '../assets/larry.png';
 import meghan from '../assets/meghan.png';
 import yvonne from '../assets/yvonne.png';
 import diana from '../assets/diana.png';
 
-const Team = () => {
-  const teamMembers = [
+const Team = ({data=8}) => {
+  // DATA TEAM MEMBER
+  const [teamMembers] = useState([
     {
       name: 'Larry F. Burnett',
       position: 'CEO',
@@ -46,14 +47,18 @@ const Team = () => {
       position: 'COO',
       image: diana,
     },
-  ];
+  ]);
+
+  const members = teamMembers.slice(0, data);
+
   return (
-    <div className='px-32 pt-24 font-raleway'>
+    <div className='md:px-32 px-10 pt-24 font-raleway'>
         <h2 className="font-bold text-2xl text-peachred text-center">\ Team \</h2>
         <h1 className="font-bold text-4xl text-darkblue text-center">Our Leaders</h1>
-        <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
-          {teamMembers.map((member, index) => (
-            <div key={index} className='flex flex-col justify-center items-center mt-8 px-5'>
+        <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
+          {/* LOOPING SHOW MEMBER */}
+          {members.map((member, index) => (
+            <div key={index} className='flex flex-col justify-center items-center mt-8'>
               <img className='max-w-56' src={member.image} alt="" />
               <h1 className='font-bold text-xl mt-8 text-peachred'>{member.name}</h1>
               <p className='font-medium py-2'>{member.position}</p>

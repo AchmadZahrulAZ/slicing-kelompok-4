@@ -5,8 +5,8 @@ import Contact from './pages/Contact';
 import OurServices from './pages/OurServices';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Portfolio from './components/Portfolio';
-import Homepage from './components/Homepage';
+import Portfolio from './pages/Portfolio';
+import Homepage from './pages/Homepage';
 import Blog from './pages/Blog';
 
 const App = () => {
