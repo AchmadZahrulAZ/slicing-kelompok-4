@@ -192,7 +192,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
       <div className="bg-offwhite py-10">
         <div className="text-center my-5">
           <h1 className="font-bold text-2xl text-peachred">\ Our Blog \</h1>
