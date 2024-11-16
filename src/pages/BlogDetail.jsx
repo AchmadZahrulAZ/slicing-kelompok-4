@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Quotes from "../components/Quotes";
+import SeoComponent from "../components/SeoComponents";
 
 // Import images
 import BlogPicture1 from "../assets/BlogPicture1.png";
@@ -61,6 +62,7 @@ const BlogDetail = () => {
 
   return (
     <>
+    <SeoComponent page="blogdetail" />
       <Header title="Blog Detail" />
       <div className="py-10 px-6 lg:px-20">
         <h1 className="text-4xl font-bold text-darkblue mb-4">{blog.title}</h1>
