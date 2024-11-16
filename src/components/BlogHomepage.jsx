@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BlogPicture1 from '../assets/BlogPicture1.png';
 import BlogPicture2 from '../assets/BlogPicture2.png';
 import BlogPicture3 from '../assets/BlogPicture3.png';
@@ -26,7 +27,16 @@ const BlogPostCard2 = ({ image, date, title, author, authorImage }) => {
   );
 };
 
-const BlogCstm = () => {
+// PropTypes for BlogPostCard2
+BlogPostCard2.propTypes = {
+  image: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  authorImage: PropTypes.string.isRequired,
+};
+
+const BlogHomepage = () => {
   const BlogPostsCard2 = [
     {
       image: BlogPicture1,
@@ -61,14 +71,7 @@ const BlogCstm = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8 lg:px-16">
           {BlogPostsCard2.map((post, index) => (
-            <BlogPostCard2
-              key={index}
-              image={post.image}
-              date={post.date}
-              title={post.title}
-              author={post.author}
-              authorImage={post.authorImage}
-            />
+            <BlogPostCard2 key={index} image={post.image} date={post.date} title={post.title} author={post.author} authorImage={post.authorImage} />
           ))}
         </div>
       </div>
@@ -76,4 +79,5 @@ const BlogCstm = () => {
   );
 };
 
-export default BlogCstm;
+export default BlogHomepage;
+

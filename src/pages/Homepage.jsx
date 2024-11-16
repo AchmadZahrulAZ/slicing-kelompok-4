@@ -1,14 +1,14 @@
-import React from "react";
-import HomepageImage from "../assets/MaskGroup.png";
-import Testimonials from "../components/TestimonialSlider";
-import AboutUs from "../components/AboutUs";
-import Quotes from "../components/Quotes";
-import Team from "../components/Team";
-import WhatWeDo from "../components/WhatWeDo"
-import GetInTouch from "../components/GetInTouch";
-import Planning from "../components/Planning";
-import BlogCstm  from "../components/BlogCstm";
-import Button from "../components/Buttons/Button";
+import React from 'react';
+import HomepageImage from '../assets/MaskGroup.png';
+import Testimonials from '../components/TestimonialSlider';
+import AboutUs from '../components/AboutUs';
+import Quotes from '../components/Quotes';
+import Team from '../components/Team';
+import WhatWeDo from '../components/WhatWeDo';
+import GetInTouch from '../components/GetInTouch';
+import Planning from '../components/Planning';
+import BlogHomepage from '../components/BlogHomepage';
+import Button from '../components/Buttons/Button';
 
 export default function Homepage() {
   return (
@@ -22,7 +22,7 @@ export default function Homepage() {
               Better Insights For <br />
               Business Growth
             </h1>
-            <Button text="View More"/>
+            <Button text="View More" />
           </div>
           <div className="md:flex hidden">
             <img src={HomepageImage} alt="Homepage Image" />
@@ -30,13 +30,14 @@ export default function Homepage() {
         </div>
       </div>
       <AboutUs />
-      <Planning/>
-      <WhatWeDo button={<Button text={"View More"}/>} />
+      <Planning />
+      <WhatWeDo button={<Button text={'View More'} />} />
       <Team data={4} />
-      <Testimonials/>
-      <GetInTouch bg={"bg-darkblue"} color="text-white" />
-      <BlogCstm/>
+      <Testimonials />
+      <GetInTouch bg={'bg-darkblue'} color="text-white" />
+      <BlogHomepage />
       <Quotes />
     </>
   );
 }
+
