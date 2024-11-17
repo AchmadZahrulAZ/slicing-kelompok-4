@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MetadataContext } from "../context/MetadataContext";
+import { MetadataContext } from "../context/MetadataContext.jsx";
 
 const useMetadata = (page) => {
   const { defaultMetadata, metadata } = useContext(MetadataContext);
