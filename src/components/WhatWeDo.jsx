@@ -1,12 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types"; // Import PropTypes
-import ServiceTeamWork from "../assets/ServiceTeamWork.png";
-import ServiceVision from "../assets/ServiceVision.png";
-import ServiceGoal from "../assets/ServiceGoal.png";
-import useGet from "../hooks/useGetArray";
+import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
+import ServiceTeamWork from '../assets/ServiceTeamWork.png';
+import ServiceVision from '../assets/ServiceVision.png';
+import ServiceGoal from '../assets/ServiceGoal.png';
+import useGet from '../hooks/useGetArray';
 
 const OurServices = ({ button, total = 6, limit = 10 }) => {
   const { data, error, loading } = useGet({ page: `expertise?limit=${limit}` });
+  const { dataw, errorw, loadingw } = useGet({ page: 'what-we-do' }); // Fetch data from custom hook
 
   const expertises = data.slice(0, total);
   return (
@@ -14,58 +15,39 @@ const OurServices = ({ button, total = 6, limit = 10 }) => {
       <div className="font-raleway">
         {/* What We Do Section */}
         <section className="flex flex-col xl:flex-row items-center mb-12 bg-offwhite py-20 md:px-32 px-10 gap-8">
-          {/* Left Column: Image */}
+          {/* Left Column: imageUrl */}
           <div>
-            <img
-              src={ServiceTeamWork}
-              alt="Team working together"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
+            <img src={ServiceTeamWork} alt="Team working together" className="w-full h-auto rounded-lg shadow-lg" />
           </div>
 
           {/* Right Column: Text */}
           <div>
-            <h2 className="text-xl text-peachred font-semibold mb-2">
-              \ What We Do \
-            </h2>
+            <h2 className="text-xl text-peachred font-semibold mb-2">\ What We Do \</h2>
             <h1 className="text-4xl font-bold text-darkblue mb-4">
               We Develop Products That <br /> People Love to Use.
             </h1>
             <p className="text-gray-600 mb-6">
-              It is a long established fact that a reader will be distracted by
-              the <br /> readable content of a page when looking at its layout.
+              It is a long established fact that a reader will be distracted by the <br /> readable content of a page when looking at its layout.
             </p>
             <div className="flex gap-2 md:flex-row flex-col">
               {/* Vision Box */}
               <div className="p-3 bg-[#FFFFFF] rounded-lg shadow-md flex items-center">
                 <div className="bg-[#ffe8ef] p-3 rounded-lg text-peachred mr-5">
-                  <img
-                    src={ServiceVision}
-                    alt="Our Vision"
-                    className="min-w-8 min-h-8"
-                  />
+                  <img src={ServiceVision} alt="Our Vision" className="min-w-8 min-h-8" />
                 </div>
                 <div className="min-w-32 hyphens-auto">
                   <p className="font-semibold text-red-500">Our Vision</p>
-                  <p className="text-gray-600">
-                    It is a long established fact that
-                  </p>
+                  <p className="text-gray-600">It is a long established fact that</p>
                 </div>
               </div>
               {/* Goal Box */}
               <div className="bg-[#FFFFFF] p-3 rounded-lg shadow-md flex items-center">
                 <div className="bg-[#ffe8ef] p-3 rounded-lg text-peachred mr-5">
-                  <img
-                    src={ServiceGoal}
-                    alt="Our Goal"
-                    className="min-w-8 min-h-8"
-                  />
+                  <img src={ServiceGoal} alt="Our Goal" className="min-w-8 min-h-8" />
                 </div>
                 <div className="min-w-32 hyphens-auto">
                   <p className="font-semibold text-red-500">Our Goal</p>
-                  <p className="text-gray-600">
-                    It is a long established fact that
-                  </p>
+                  <p className="text-gray-600">It is a long established fact that</p>
                 </div>
               </div>
             </div>
@@ -73,22 +55,72 @@ const OurServices = ({ button, total = 6, limit = 10 }) => {
           </div>
         </section>
 
+        {/* What We Do Section: API Data */}
+        <section className="flex flex-col xl:flex-row items-center mb-12 bg-offwhite py-20 md:px-32 px-10 gap-8">
+          {loadingw ? (
+            <p className="text-gray-500">Loading...</p> // Display while fetching data
+          ) : errorw ? (
+            <p className="text-red-500">Error: {errorw.message}</p> // Display if an error occurs
+          ) : dataw && dataw.length > 0 ? (
+            dataw.map((item, index) => (
+              <React.Fragment key={item.id || index}>
+                {/* Left Column: imageUrl */}
+                <div>
+                  <img
+                    src={item.imageUrl || ServiceTeamWork} // Default to placeholder if imageUrl is missing
+                    alt={item.title || 'Default Title'} // Default title if missing
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
+
+                {/* Right Column: Text */}
+                <div>
+                  <h2 className="text-xl text-peachred font-semibold mb-2">\ What We Do \</h2>
+                  <h1 className="text-4xl font-bold text-darkblue mb-4">
+                    {item.title || 'Default Title'} {/* Title from API or fallback */}
+                  </h1>
+                  <p className="text-gray-600 mb-6">
+                    {item.desc || 'Default description text.'} {/* Description from API or fallback */}
+                  </p>
+                  <div className="flex gap-2 md:flex-row flex-col">
+                    {/* Vision Box */}
+                    <div className="p-3 bg-[#FFFFFF] rounded-lg shadow-md flex items-center">
+                      <div className="bg-[#ffe8ef] p-3 rounded-lg text-peachred mr-5">
+                        <img src={ServiceVision} alt="Our Vision" className="min-w-8 min-h-8" />
+                      </div>
+                      <div className="min-w-32 hyphens-auto">
+                        <p className="font-semibold text-red-500">Our Vision</p>
+                        <p className="text-gray-600">It is a long established fact that</p>
+                      </div>
+                    </div>
+                    {/* Goal Box */}
+                    <div className="bg-[#FFFFFF] p-3 rounded-lg shadow-md flex items-center">
+                      <div className="bg-[#ffe8ef] p-3 rounded-lg text-peachred mr-5">
+                        <img src={ServiceGoal} alt="Our Goal" className="min-w-8 min-h-8" />
+                      </div>
+                      <div className="min-w-32 hyphens-auto">
+                        <p className="font-semibold text-red-500">Our Goal</p>
+                        <p className="text-gray-600">It is a long established fact that</p>
+                      </div>
+                    </div>
+                  </div>
+                  {button}
+                </div>
+              </React.Fragment>
+            ))
+          ) : (
+            <p className="text-gray-500">No data available.</p> // Handle case where dataw is empty
+          )}
+        </section>
+
         {/* Services Section */}
         <section className="text-center py-10 md:px-32 px-10">
-          <h2 className="text-xl text-peachred font-semibold mb-2">
-            \ Services \
-          </h2>
-          <h1 className="text-3xl font-bold text-darkblue mb-10">
-            Our Expertise
-          </h1>
+          <h2 className="text-xl text-peachred font-semibold mb-2">\ Services \</h2>
+          <h1 className="text-3xl font-bold text-darkblue mb-10">Our Expertise</h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
             {expertises.map((expertise, index) => (
               <div key={index}>
-                <ServiceCard
-                  imgSrc={expertise.iconUrl}
-                  title={expertise.title}
-                  desc={expertise.desc}
-                />
+                <ServiceCard imgSrc={expertise.iconUrl} title={expertise.title} desc={expertise.desc} />
               </div>
             ))}
           </div>
@@ -126,3 +158,4 @@ ServiceCard.propTypes = {
 };
 
 export default OurServices;
+
