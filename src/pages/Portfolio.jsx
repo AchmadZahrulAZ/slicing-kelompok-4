@@ -7,7 +7,8 @@ import AvailableBalance from '../assets/AvailableBalance.png';
 import Header from '../components/Header';
 import Quotes from '../components/Quotes';
 import ButtonSmall from '../components/Buttons/ButtonSmall';
-import SeoComponent from '../components/SEOcomponents';
+import SEOcomponents from "../components/SEOcomponents";
+
 
 export default function Portfolio() {
   const [activeImage, setActiveImage] = useState('');
@@ -35,7 +36,7 @@ export default function Portfolio() {
 
   return (
     <>
-      <SeoComponent page="portfolio" />
+      <SEOcomponents page="portfolio" />
       <Header title={'Portfolio'} />
       <div className="bg-whitecstm font-raleway text-center mt-24">
         <p className="text-2xl font-bold text-peachred">\ Portfolio \</p>

@@ -3,7 +3,8 @@ import PropTypes from "prop-types"; // Import PropTypes
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Quotes from "../components/Quotes";
-import SeoComponent from "../components/SEOcomponents";
+import SEOcomponents from "../components/SEOcomponents";
+
 
 // Import images
 import BlogPicture1 from "../assets/BlogPicture1.png";
@@ -137,7 +138,7 @@ const Blog = () => {
 
   return (
     <>
-    <SeoComponent page="blog" />
+    <SEOcomponents page="blog" />
       <Header title={"Blog"} />
       <div className="py-24">
         <div className="text-center">
