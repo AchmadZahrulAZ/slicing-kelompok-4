@@ -3,8 +3,7 @@ import Header from '../components/Header';
 import AboutUs from '../components/AboutUs';
 import Team from '../components/Team';
 import Quotes from '../components/Quotes';
-import SEOcomponents from "../components/SEOcomponents";
-
+import SEOcomponents from '../components/SeoComponents';
 
 const About = () => {
   return (
@@ -19,3 +18,4 @@ const About = () => {
 };
 
 export default About;
+

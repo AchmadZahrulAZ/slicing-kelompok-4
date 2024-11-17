@@ -9,8 +9,7 @@ import GetInTouch from '../components/GetInTouch';
 import Planning from '../components/Planning';
 import BlogHomepage from '../components/BlogHomepage';
 import Button from '../components/Buttons/Button';
-import SEOcomponents from "../components/SEOcomponents";
-
+import SEOcomponents from '../components/SeoComponents';
 
 export default function Homepage() {
   return (

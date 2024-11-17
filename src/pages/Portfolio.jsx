@@ -7,8 +7,7 @@ import AvailableBalance from '../assets/AvailableBalance.png';
 import Header from '../components/Header';
 import Quotes from '../components/Quotes';
 import ButtonSmall from '../components/Buttons/ButtonSmall';
-import SEOcomponents from "../components/SEOcomponents";
-
+import SEOcomponents from '../components/SeoComponents';
 
 export default function Portfolio() {
   const [activeImage, setActiveImage] = useState('');
@@ -63,3 +62,4 @@ export default function Portfolio() {
     </>
   );
 }
+
