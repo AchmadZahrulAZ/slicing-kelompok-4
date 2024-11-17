@@ -1,55 +1,11 @@
-import React, {useState} from 'react';
-import larry from '../assets/larry.png';
-import meghan from '../assets/meghan.png';
-import yvonne from '../assets/yvonne.png';
-import diana from '../assets/diana.png';
+import React from 'react';
+import useGet from '../hooks/useGetArray';
 
-const Team = ({data=8}) => {
+const Team = ({total=8, limit=10}) => {
   // DATA TEAM MEMBER
-  const [teamMembers] = useState([
-    {
-      name: 'Larry F. Burnett',
-      position: 'CEO',
-      image: larry,
-    },
-    {
-      name: 'Meghan M. Johnson',
-      position: 'CFO',
-      image: meghan,
-    },
-    {
-      name: 'Yvonne L. Johnson',
-      position: 'CMO',
-      image: yvonne,
-    },
-    {
-      name: 'Diana L. Johnson',
-      position: 'COO',
-      image: diana,
-    },
-    {
-      name: 'Larry F. Burnett',
-      position: 'CEO',
-      image: larry,
-    },
-    {
-      name: 'Meghan M. Johnson',
-      position: 'CFO',
-      image: meghan,
-    },
-    {
-      name: 'Yvonne L. Johnson',
-      position: 'CMO',
-      image: yvonne,
-    },
-    {
-      name: 'Diana L. Johnson',
-      position: 'COO',
-      image: diana,
-    },
-  ]);
+  const {data, error, loading} = useGet({page: `team?limit=${limit}`})
 
-  const members = teamMembers.slice(0, data);
+  const members = data.slice(0, total);
 
   return (
     <div className='md:px-32 px-10 pt-24 font-raleway'>
@@ -59,9 +15,9 @@ const Team = ({data=8}) => {
           {/* LOOPING SHOW MEMBER */}
           {members.map((member, index) => (
             <div key={index} className='flex flex-col justify-center items-center mt-8'>
-              <img className='max-w-56' src={member.image} alt="" />
+              <img className='max-w-56' src={member.imageUrl} alt="" />
               <h1 className='font-bold text-xl mt-8 text-peachred'>{member.name}</h1>
-              <p className='font-medium py-2'>{member.position}</p>
+              <p className='font-medium py-2'>{member.title}</p>
             </div>
           ))}
         </div>
