@@ -9,7 +9,7 @@ import Portfolio from './pages/Portfolio';
 import Homepage from './pages/Homepage';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
-import { MetadataProvider } from './context/MetadataContext.jsx';
+import { MetadataProvider } from './context/MetaDataContext';
 
 const App = () => {
   return (
