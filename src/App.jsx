@@ -8,26 +8,29 @@ import Navbar from './components/Navbar';
 import Portfolio from './pages/Portfolio';
 import Homepage from './pages/Homepage';
 import Blog from './pages/Blog';
-import BlogDetail from "./pages/BlogDetail";
+import BlogDetail from './pages/BlogDetail';
+import { MetadataProvider } from './context/MetaDataContext';
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/homepage" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/ourservices" element={<OurServices />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
-      </Routes>
-      <Footer />
-    </Router>
-  )
-}
+    <MetadataProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/ourservices" element={<OurServices />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </MetadataProvider>
+  );
+};
 
 export default App;
 

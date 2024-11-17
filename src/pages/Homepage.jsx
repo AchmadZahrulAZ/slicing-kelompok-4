@@ -9,10 +9,12 @@ import GetInTouch from '../components/GetInTouch';
 import Planning from '../components/Planning';
 import BlogHomepage from '../components/BlogHomepage';
 import Button from '../components/Buttons/Button';
+import SEOcomponents from '../components/SeoComponents';
 
 export default function Homepage() {
   return (
     <>
+      <SEOcomponents page="homepage" />
       <div className="bg-whitecstm font-raleway my-12 md:px-24 px-10">
         <div className="grid md:grid-cols-2 grid-cols-1">
           <div className="content-center justify-self-center">
