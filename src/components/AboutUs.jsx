@@ -11,7 +11,7 @@ const AboutUs = () => {
           <img
             className="lg:max-h-[400px] lg:max-w-[555px]"
             src={about}
-            alt=""
+            alt="About us image"
           />
         </div>
         {/* GROUP TEXT DESCRIPTION */}
