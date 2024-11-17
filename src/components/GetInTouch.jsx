@@ -123,4 +123,3 @@ const GetInTouch = ({ bg = 'bg-peachred/[.05]', color = 'text-darkblue' }) => {
 };
 
 export default GetInTouch;
-
