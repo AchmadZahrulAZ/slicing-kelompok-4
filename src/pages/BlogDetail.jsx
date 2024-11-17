@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Quotes from "../components/Quotes";
-import SeoComponent from "../components/SeoComponents";
+import SeoComponent from "../components/SEOcomponents";
 
 // Import images
 import BlogPicture1 from "../assets/BlogPicture1.png";

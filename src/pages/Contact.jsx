@@ -1,8 +1,8 @@
-import React from "react";
-import Header from "../components/Header";
-import GetInTouch from "../components/GetInTouch";
-import Quotes from "../components/Quotes";
-import SeoComponent from "../components/SeoComponents";
+import React from 'react';
+import Header from '../components/Header';
+import GetInTouch from '../components/GetInTouch';
+import Quotes from '../components/Quotes';
+import SeoComponent from '../components/SEOcomponents';
 
 const Contact = () => {
   return (
@@ -16,3 +16,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
