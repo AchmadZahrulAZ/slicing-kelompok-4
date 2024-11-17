@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import NothingGreat from '../assets/NothingGreat.png';
-import MoreThan from '../assets/MoreThan.png';
-import EnjoyWith from '../assets/EnjoyWith.png';
-import TheMost from '../assets/TheMost.png';
-import AvailableBalance from '../assets/AvailableBalance.png';
 import Header from '../components/Header';
 import Quotes from '../components/Quotes';
 import ButtonSmall from '../components/Buttons/ButtonSmall';
 import SEOcomponents from '../components/SeoComponents';
+import useGet from '../hooks/useGetArray';
 
 export default function Portfolio() {
   const [activeImage, setActiveImage] = useState('');
   const [activeButton, setActiveButton] = useState(null);
 
+  const {data, error, loading} = useGet({page: "portfolio"})
+
   // IMAGES PER BUTTON OR GENRE
   const images = {
-    ALL: [NothingGreat, MoreThan, EnjoyWith, TheMost, AvailableBalance],
-    LIFE: [NothingGreat, MoreThan, EnjoyWith, TheMost],
-    MOMENTS: [NothingGreat, MoreThan, EnjoyWith],
-    NATURE: [NothingGreat, MoreThan],
-    STORIES: [EnjoyWith, TheMost, AvailableBalance],
-    TRAVEL: [NothingGreat, TheMost],
+    ALL: data,
+    LIFE: data,
+    MOMENTS: data,
+    NATURE: data,
+    STORIES: data,
+    TRAVEL: data,
   };
 
   const handleButtonClick = (buttonName) => {
@@ -47,13 +45,11 @@ export default function Portfolio() {
             </button>
           ))}
         </div>
-        {activeImage.length > 0 && (
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-32">
-            {activeImage.map((image, index) => (
-              <img key={index} src={image} alt={`Portfolio ${index}`} className="w-full h-auto rounded-md" />
+            {data.map((index) => (
+              <img key={index} src={data.imageUrl} alt={`Portfolio`} className="w-full h-auto rounded-md" />
             ))}
           </div>
-        )}
       </div>
       <div className="flex justify-center w-full py-10">
         <ButtonSmall text="Get In Touch" />
